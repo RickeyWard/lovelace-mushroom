@@ -1,13 +1,13 @@
 import { HassEntity } from "home-assistant-js-websocket";
 import { html, TemplateResult } from "lit";
 import { computeStateDisplay, HomeAssistant, isActive, isAvailable } from "../ha";
-import "../shared/badge-icon";
-import "../shared/card";
+// import "../shared/badge-icon";
+// import "../shared/card";
 import { Appearance } from "../shared/config/appearance-config";
-import "../shared/shape-avatar";
-import "../shared/shape-icon";
-import "../shared/state-info";
-import "../shared/state-item";
+// import "../shared/shape-avatar";
+// import "../shared/shape-icon";
+// import "../shared/state-info";
+// import "../shared/state-item";
 import { MushroomBaseElement } from "./base-element";
 import { computeEntityPicture, computeInfoDisplay } from "./info";
 

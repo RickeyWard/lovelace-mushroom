@@ -17,12 +17,12 @@ import {
     LovelaceCard,
     LovelaceCardEditor,
 } from "../../ha";
-import "../../shared/badge-icon";
-import "../../shared/card";
-import "../../shared/shape-avatar";
-import "../../shared/shape-icon";
-import "../../shared/state-info";
-import "../../shared/state-item";
+// import "../../shared/badge-icon";
+// import "../../shared/card";
+// import "../../shared/shape-avatar";
+// import "../../shared/shape-icon";
+// import "../../shared/state-info";
+// import "../../shared/state-item";
 import "../../shared/time-countdown";
 import { computeAppearance } from "../../utils/appearance";
 import { MushroomBaseCard } from "../../utils/base-card";
