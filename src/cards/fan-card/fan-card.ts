@@ -16,13 +16,13 @@ import {
     LovelaceCard,
     LovelaceCardEditor,
 } from "../../ha";
-import "../../shared/badge-icon";
-import "../../shared/button";
-import "../../shared/card";
-import "../../shared/shape-avatar";
-import "../../shared/shape-icon";
-import "../../shared/state-info";
-import "../../shared/state-item";
+// import "../../shared/badge-icon";
+// import "../../shared/button";
+// import "../../shared/card";
+// import "../../shared/shape-avatar";
+// import "../../shared/shape-icon";
+// import "../../shared/state-info";
+// import "../../shared/state-item";
 import { computeAppearance } from "../../utils/appearance";
 import { MushroomBaseCard } from "../../utils/base-card";
 import { cardStyle } from "../../utils/card-styles";
@@ -30,16 +30,16 @@ import { registerCustomCard } from "../../utils/custom-cards";
 import { stateIcon } from "../../utils/icons/state-icon";
 import { computeEntityPicture } from "../../utils/info";
 import { FAN_CARD_EDITOR_NAME, FAN_CARD_NAME, FAN_ENTITY_DOMAINS } from "./const";
-import "./controls/fan-oscillate-control";
-import "./controls/fan-percentage-control";
+// import "./controls/fan-oscillate-control";
+// import "./controls/fan-percentage-control";
 import "./controls/fan-preset-control";
 import { FanCardConfig } from "./fan-card-config";
 import { getPercentage } from "./utils";
 
 registerCustomCard({
     type: FAN_CARD_NAME,
-    name: "Mushroom Fan Card",
-    description: "Card for fan entity",
+    name: "Mushroom Fan Card Extended",
+    description: "Card for fan entity (with presets)",
 });
 
 @customElement(FAN_CARD_NAME)
