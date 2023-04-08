@@ -13,7 +13,7 @@ import { stateIcon } from "../../utils/icons/state-icon";
 import { loadHaComponents } from "../../utils/loader";
 import { FAN_CARD_EDITOR_NAME, FAN_ENTITY_DOMAINS } from "./const";
 import { FanCardConfig, fanCardConfigStruct } from "./fan-card-config";
-import '../../shared/button'
+// import '../../shared/button'
 
 const FAN_LABELS = ["icon_animation", "show_percentage_control", "show_oscillate_control", "custom_presets"];
 
