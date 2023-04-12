@@ -1,13 +1,14 @@
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant, isActive, isAvailable } from "../../../ha";
-import "../../../shared/slider";
+// import "../../../shared/slider";
 import { getPercentage } from "../utils";
 import { FanCardConfig } from "../fan-card-config";
 import { classMap } from "lit/directives/class-map.js";
+import { customElementTry } from "../../../ha/common/decorators";
 
-@customElement("mushroom-fan-preset-control")
+@customElementTry("mushroom-fan-preset-control")
 export class FanPresetControl extends LitElement {
     @property({ attribute: false }) public hass!: HomeAssistant;
     @property({ attribute: false }) public entity!: HassEntity;

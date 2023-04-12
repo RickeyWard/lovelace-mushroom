@@ -1,11 +1,12 @@
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { HomeAssistant, isActive, isAvailable } from "../../../ha";
 import "../../../shared/slider";
 import { computePercentageStep, getPercentage } from "../utils";
+import { customElementTry } from "../../../ha/common/decorators";
 
-@customElement("mushroom-fan-percentage-control")
+@customElementTry("mushroom-fan-percentage-control")
 export class FanPercentageControl extends LitElement {
     @property({ attribute: false }) public hass!: HomeAssistant;
 

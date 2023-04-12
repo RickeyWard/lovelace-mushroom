@@ -1,12 +1,13 @@
 import { HassEntity } from "home-assistant-js-websocket";
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { HomeAssistant, isActive } from "../../../ha";
 import "../../../shared/slider";
 import { isOscillating } from "../utils";
+import { customElementTry } from "../../../ha/common/decorators";
 
-@customElement("mushroom-fan-oscillate-control")
+@customElementTry("mushroom-fan-oscillate-control")
 export class FanPercentageControl extends LitElement {
     @property({ attribute: false }) public hass!: HomeAssistant;
 
