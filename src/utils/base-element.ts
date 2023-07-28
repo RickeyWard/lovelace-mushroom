@@ -9,6 +9,7 @@ import { HomeAssistant } from "../ha";
 // import "../shared/state-item";
 import { defaultColorCss, defaultDarkColorCss } from "./colors";
 import { themeVariables, themeColorCss } from "./theme";
+import { animations } from "../utils/entity-styles";
 
 export function computeDarkMode(hass?: HomeAssistant): boolean {
     if (!hass) return false;
@@ -29,17 +30,20 @@ export class MushroomBaseElement extends LitElement {
     }
 
     static get styles(): CSSResultGroup {
-        return css`
-            :host {
-                ${defaultColorCss}
-            }
-            :host([dark-mode]) {
-                ${defaultDarkColorCss}
-            }
-            :host {
-                ${themeColorCss}
-                ${themeVariables}
-            }
-        `;
+        return [
+            animations,
+            css`
+                :host {
+                    ${defaultColorCss}
+                }
+                :host([dark-mode]) {
+                    ${defaultDarkColorCss}
+                }
+                :host {
+                    ${themeColorCss}
+                    ${themeVariables}
+                }
+            `,
+        ];
     }
 }
