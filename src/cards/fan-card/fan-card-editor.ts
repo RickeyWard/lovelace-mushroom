@@ -1,15 +1,13 @@
-import { css, CSSResultGroup, html, TemplateResult } from "lit";
+import { css, CSSResultGroup, html, nothing } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import memoizeOne from "memoize-one";
 import { assert } from "superstruct";
-import { fireEvent, LovelaceCardEditor } from "../../ha";
+import { LovelaceCardEditor, fireEvent } from "../../ha";
 import setupCustomlocalize from "../../localize";
 import { computeActionsFormSchema } from "../../shared/config/actions-config";
 import { APPEARANCE_FORM_SCHEMA } from "../../shared/config/appearance-config";
 import { MushroomBaseElement } from "../../utils/base-element";
 import { GENERIC_LABELS } from "../../utils/form/generic-fields";
 import { HaFormSchema } from "../../utils/form/ha-form";
-import { stateIcon } from "../../utils/icons/state-icon";
 import { loadHaComponents } from "../../utils/loader";
 import { FAN_CARD_EDITOR_NAME, FAN_ENTITY_DOMAINS } from "./const";
 import { FanCardConfig, fanCardConfigStruct } from "./fan-card-config";
@@ -20,14 +18,14 @@ const FAN_LABELS = ["icon_animation", "show_percentage_control", "show_oscillate
 const mdiClose = "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z";
 const mdiPlus = "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z";
 
-const computeSchema = memoizeOne((icon?: string): HaFormSchema[] => [
+const SCHEMA: HaFormSchema[] = [
     { name: "entity", selector: { entity: { domain: FAN_ENTITY_DOMAINS } } },
     { name: "name", selector: { text: {} } },
     {
         type: "grid",
         name: "",
         schema: [
-            { name: "icon", selector: { icon: { placeholder: icon } } },
+            { name: "icon", selector: { icon: {} }, context: { icon_entity: "entity" } },
             { name: "icon_animation", selector: { boolean: {} } },
         ],
     },
@@ -42,7 +40,7 @@ const computeSchema = memoizeOne((icon?: string): HaFormSchema[] => [
         ],
     },
     ...computeActionsFormSchema(),
-]);
+];
 
 const customPresetsScheme: HaFormSchema[] = [
     {
@@ -83,21 +81,16 @@ export class FanCardEditor extends MushroomBaseElement implements LovelaceCardEd
         return this.hass!.localize(`ui.panel.lovelace.editor.card.generic.${schema.name}`);
     };
 
-    protected render(): TemplateResult {
+    protected render() {
         if (!this.hass || !this._config) {
-            return html``;
+            return nothing;
         }
-
-        const entityState = this._config.entity ? this.hass.states[this._config.entity] : undefined;
-        const entityIcon = entityState ? stateIcon(entityState) : undefined;
-        const icon = this._config.icon || entityIcon;
-        const schema = computeSchema(icon);
 
         return html`
             <ha-form
                 .hass=${this.hass}
                 .data=${this._config}
-                .schema=${schema}
+                .schema=${SCHEMA}
                 .computeLabel=${this._computeLabel}
                 @value-changed=${this._valueChanged}
             ></ha-form>
@@ -192,7 +185,7 @@ export class FanCardEditor extends MushroomBaseElement implements LovelaceCardEd
                 }
                 .custom-preset-row ha-icon-button,
                 .custom-preset-row button {
-                    flex-shring: 1;
+                    flex-shrink: 1;
                     flex-basis: 0%;
                 }
             `
