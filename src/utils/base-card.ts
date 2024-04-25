@@ -11,14 +11,14 @@ import {
     LovelaceLayoutOptions,
 } from "../ha";
 import setupCustomlocalize from "../localize";
-import "../shared/badge-icon";
-import "../shared/card";
+// import "../shared/badge-icon";
+// import "../shared/card";
 import { Appearance, AppearanceSharedConfig } from "../shared/config/appearance-config";
 import { EntitySharedConfig } from "../shared/config/entity-config";
-import "../shared/shape-avatar";
-import "../shared/shape-icon";
-import "../shared/state-info";
-import "../shared/state-item";
+// import "../shared/shape-avatar";
+// import "../shared/shape-icon";
+// import "../shared/state-info";
+// import "../shared/state-item";
 import { computeAppearance } from "./appearance";
 import { MushroomBaseElement } from "./base-element";
 import { computeInfoDisplay } from "./info";

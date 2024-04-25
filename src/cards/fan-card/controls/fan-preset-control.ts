@@ -62,11 +62,14 @@ export class FanPresetControl extends LitElement {
             return html`
                 <mushroom-button
                     .disabled=${!isAvailable(this.entity)}
-                    .icon=${preset.icon || "mdi:fan"}
                     @click=${this._onTap}
                      class=${classMap({ active: activated })}
                     .id=${'fan-preset-'+preset.percentage}
-                />`
+                >
+                <ha-icon
+                .icon=${preset.icon || "mdi:fan"}
+                ></ha-icon>
+                </mushroom-button>`
             })}
         `;
     }
