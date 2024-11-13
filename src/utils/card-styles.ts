@@ -48,4 +48,7 @@ export const cardStyle = css`
     mushroom-state-item[disabled] {
         cursor: initial;
     }
+    .fill-container .actions {
+        align-items: center;
+    }
 `;

@@ -247,6 +247,12 @@ export class FanCard extends MushroomBaseCard<FanCardConfig> implements Lovelace
                 mushroom-fan-preset-control {
                     flex: 1;
                 }
+                ha-card.fill-container {
+                    padding-left: 0;
+                    padding-right: var(--spacing);
+                    --icon-size: 36px;
+                    --spacing: 10px;
+                }
             `,
         ];
     }
